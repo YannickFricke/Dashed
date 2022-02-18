@@ -29,7 +29,8 @@ defmodule Dashed.MixProject do
   # Run "mix help deps" to learn about dependencies.
   defp deps do
     [
-      {:ex_doc, "~> 0.28.0"}
+      {:ex_doc, "~> 0.28.0"},
+      {:credo, "~> 1.6", only: [:dev, :test], runtime: false}
     ]
   end
 end
