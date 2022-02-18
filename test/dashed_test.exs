@@ -1,8 +1,6 @@
 defmodule DashedTest do
+  @moduledoc false
+
   use ExUnit.Case
   doctest Dashed
-
-  test "greets the world" do
-    assert Dashed.hello() == :world
-  end
 end

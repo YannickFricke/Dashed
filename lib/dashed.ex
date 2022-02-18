@@ -1,18 +1,5 @@
 defmodule Dashed do
   @moduledoc """
-  Documentation for `Dashed`.
+  `Dashed` is a module that provides helper functions for working with the CLI.
   """
-
-  @doc """
-  Hello world.
-
-  ## Examples
-
-      iex> Dashed.hello()
-      :world
-
-  """
-  def hello do
-    :world
-  end
 end
