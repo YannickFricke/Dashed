@@ -1,8 +1,7 @@
 defmodule Dashed.CliApplicationTest do
   @moduledoc false
 
-  use ExUnit.Case, async: true
-  use ExUnitProperties
+  use ExUnitHelpers
 
   describe "name/1" do
     test "it should have nil as default value" do
@@ -61,6 +60,30 @@ defmodule Dashed.CliApplicationTest do
         :code.purge(StringDescriptionCliApplication)
         :code.delete(StringDescriptionCliApplication)
       end
+    end
+  end
+
+  describe "version/1" do
+    test "it should have '0.0.0' as default value" do
+      defmodule NilVersionCliApplication do
+        @moduledoc false
+
+        use Dashed.CliApplication
+      end
+
+      assert NilVersionCliApplication.__dashed__(:version) == "0.0.0"
+    end
+
+    test "it should define the version when the input is a semver compatible version" do
+      defmodule StringVersionCliApplication do
+        @moduledoc false
+
+        use Dashed.CliApplication
+
+        version "1.0.0"
+      end
+
+      assert StringVersionCliApplication.__dashed__(:version) == "1.0.0"
     end
   end
 end

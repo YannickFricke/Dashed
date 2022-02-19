@@ -22,6 +22,7 @@ defmodule Dashed.CliApplication do
 
     name "dashed"
     description "Managing Elixir CLI commands at a breeze"
+    version "0.1.0"
   end
   ```
   """
@@ -58,6 +59,16 @@ defmodule Dashed.CliApplication do
   defmacro description(application_description) do
     quote do
       @dashed_description unquote(application_description)
+    end
+  end
+
+  @doc """
+  Sets the version for the CLI application
+  """
+  @spec version(String.t()) :: Macro.t()
+  defmacro version(application_version) do
+    quote do
+      @dashed_version unquote(application_version)
     end
   end
 
