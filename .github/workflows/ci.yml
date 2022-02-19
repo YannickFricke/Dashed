@@ -13,6 +13,14 @@ jobs:
               run: mix local.hex --force
             - name: Install rebar
               run: mix local.rebar --force
+            - uses: actions/cache@v2
+              with:
+                  path: |
+                      deps
+                      _build
+                  key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-mix-
             - name: Fetch and compile the dependencies
               run: make fetch-deps compile-deps
             - name: Compile the application source code
