@@ -1,6 +1,18 @@
 defmodule Dashed.CliApplication do
   @moduledoc """
   The `Dashed.CliApplication` module provides macros for building command line applications.
+
+  ## Examples
+
+  This is the simplest example of an command line application:
+
+  ```elixir
+  defmodule MyCliApplication do
+    use Dashed.CliApplication
+
+    name "My Cli Application"
+  end
+  ```
   """
 
   defmacro __using__(_opts) do
