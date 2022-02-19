@@ -18,6 +18,10 @@ defmodule Dashed.CliApplication do
     end
   end
 
+  @doc """
+  Sets the name for the CLI application
+  """
+  @spec name(String.t()) :: Macro.t()
   defmacro name(application_name) do
     quote do
       @dashed_name unquote(application_name)
