@@ -1,0 +1,35 @@
+name: 'CI'
+on: [push]
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        container: elixir:1.13.3-alpine
+        steps:
+            - uses: actions/checkout@v1
+            - name: Install make
+              run: apk add make
+            - name: Install hex
+              run: mix local.hex --force
+            - name: Install rebar
+              run: mix local.rebar --force
+            - uses: actions/cache@v2
+              with:
+                  path: |
+                      deps
+                      _build
+                  key: ${{ runner.os }}-mix-${{ hashFiles('**/mix.lock') }}
+                  restore-keys: |
+                      ${{ runner.os }}-mix-
+            - name: Fetch and compile the dependencies
+              run: make fetch-deps compile-deps
+            - name: Compile the application source code
+              run: make compile
+            - name: Run tests with code coverage
+              run: make test-with-codecov
+            - name: Inspect the source code using credo
+              run: make inspect
+            - name: Analyze the source code using dialyxir
+              run: make analyze
+            - name: Create the documentation
+              run: make docs
