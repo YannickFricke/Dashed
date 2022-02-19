@@ -1,4 +1,4 @@
-.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze
+.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze ci
 
 default: fetch-deps \
 		 compile-deps \
@@ -31,3 +31,5 @@ inspect:
 
 analyze:
 	mix dialyzer
+
+ci: fetch-deps compile-deps compile test-with-codecov inspect analyze docs
