@@ -1,0 +1,12 @@
+name: 'CI'
+on: [push]
+
+jobs:
+    ci:
+        runs-on: ubuntu-latest
+        container: elixir:1.13.3-alpine
+        steps:
+            - run: |
+                  apk add make
+                  make fetch-deps compile-deps
+              name: Run in container
