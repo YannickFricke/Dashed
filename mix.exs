@@ -13,7 +13,9 @@ defmodule Dashed.MixProject do
         main: "Dashed",
         extras: ["README.md"],
         formatter: "html",
-        nest_modules_by_prefix: [],
+        nest_modules_by_prefix: [
+          Dashed.InputParsers
+        ],
         groups_for_modules: []
       ]
     ]
