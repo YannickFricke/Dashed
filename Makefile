@@ -1,4 +1,4 @@
-.PHONY: clear fetch-deps compile-deps compile test docs inspect analyze
+.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze
 
 default: fetch-deps \
 		 compile-deps \
@@ -19,6 +19,9 @@ compile:
 
 test:
 	mix test
+	
+test-with-codecov:
+	mix test --cover
 
 docs:
 	mix docs
