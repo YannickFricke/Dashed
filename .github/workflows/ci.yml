@@ -13,5 +13,15 @@ jobs:
               run: mix local.hex --force
             - name: Install rebar
               run: mix local.rebar --force
-            - name: Run the "ci" make target
-              run: make ci
+            - name: Fetch and compile the dependencies
+              run: make fetch-deps compile-deps
+            - name: Compile the application source code
+              run: make compile
+            - name: Run tests with code coverage
+              run: make test-with-codecov
+            - name: Inspect the source code using credo
+              run: make inspect
+            - name: Analyze the source code using dialyxir
+              run: make analyze
+            - name: Create the documentation
+              run: make docs
