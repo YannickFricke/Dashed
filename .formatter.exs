@@ -1,5 +1,6 @@
 dsl_calls = [
-  name: 1
+  name: 1,
+  description: 1
 ]
 
 [

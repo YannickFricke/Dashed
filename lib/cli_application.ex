@@ -10,7 +10,18 @@ defmodule Dashed.CliApplication do
   defmodule MyCliApplication do
     use Dashed.CliApplication
 
-    name "My Cli Application"
+    name "dashed"
+  end
+  ```
+
+  This is a more advanced example of an command line application:
+
+  ```elixir
+  defmodule MyCliApplication do
+    use Dashed.CliApplication
+
+    name "dashed"
+    description "Managing Elixir CLI commands at a breeze"
   end
   ```
   """
@@ -37,6 +48,16 @@ defmodule Dashed.CliApplication do
   defmacro name(application_name) do
     quote do
       @dashed_name unquote(application_name)
+    end
+  end
+
+  @doc """
+  Sets the description for the CLI application
+  """
+  @spec description(String.t()) :: Macro.t()
+  defmacro description(application_description) do
+    quote do
+      @dashed_description unquote(application_description)
     end
   end
 
