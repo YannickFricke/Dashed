@@ -1,4 +1,4 @@
-.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze
+.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze watch watch-cmd
 
 default: fetch-deps \
 		 compile-deps \
@@ -31,3 +31,11 @@ inspect:
 
 analyze:
 	mix dialyzer
+
+watch:
+	npx onchange -i -k "**/*.ex" "**/*.exs" -- make watch-cmd
+
+watch-cmd:
+	clear 
+	mix docs
+	mix test --cover
