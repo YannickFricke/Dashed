@@ -1,0 +1,23 @@
+{
+	"name": "@dashed/root",
+	"version": "0.0.0",
+	"description": "Dashed is a Elixir library for composing CLI commands through a custom DSL (domain specific language).",
+	"private": true,
+	"scripts": {
+		"prepare": "husky install"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/YannickFricke/Dashed.git"
+	},
+	"author": "Yannick Fricke",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/YannickFricke/Dashed/issues"
+	},
+	"homepage": "https://github.com/YannickFricke/Dashed#readme",
+	"devDependencies": {
+		"husky": "^7.0.4",
+		"onchange": "^7.1.0"
+	}
+}

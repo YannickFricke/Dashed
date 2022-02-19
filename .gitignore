@@ -26,3 +26,5 @@ dashed-*.tar
 /tmp/
 
 .elixir_ls/
+
+node_modules/
