@@ -26,6 +26,7 @@ defmodule Dashed.CliApplication do
   end
   ```
   """
+  @moduledoc since: "0.0.0"
 
   defmacro __using__(_opts) do
     quote do
@@ -45,6 +46,7 @@ defmodule Dashed.CliApplication do
   @doc """
   Sets the name for the CLI application
   """
+  @doc since: "0.0.0"
   @spec name(String.t()) :: Macro.t()
   defmacro name(application_name) do
     quote do
@@ -55,6 +57,7 @@ defmodule Dashed.CliApplication do
   @doc """
   Sets the description for the CLI application
   """
+  @doc since: "0.0.0"
   @spec description(String.t()) :: Macro.t()
   defmacro description(application_description) do
     quote do
@@ -65,6 +68,7 @@ defmodule Dashed.CliApplication do
   @doc """
   Sets the version for the CLI application
   """
+  @doc since: "0.0.0"
   @spec version(String.t()) :: Macro.t()
   defmacro version(application_version) do
     quote do
@@ -74,10 +78,16 @@ defmodule Dashed.CliApplication do
 
   defmacro __before_compile__(_env) do
     quote do
+      @spec __dashed__(atom()) :: term()
       def __dashed__(which \\ :all) when is_atom(which) do
         case which do
           :all ->
-            []
+            [
+              name: __dashed__(:name),
+              description: __dashed__(:description),
+              version: __dashed__(:version),
+              commands: __dashed__(:commands)
+            ]
 
           :name ->
             @dashed_name
@@ -90,6 +100,9 @@ defmodule Dashed.CliApplication do
 
           :commands ->
             @dashed_commands
+
+          _ ->
+            raise "Unknown attribute: #{which}"
         end
       end
     end
