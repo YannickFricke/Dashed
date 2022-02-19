@@ -1,11 +1,11 @@
 defmodule Dashed.CliApplication do
   @moduledoc """
-  The Dashed.CliApplication module provides macros for building command line applications.
+  The `Dashed.CliApplication` module provides macros for building command line applications.
   """
 
   defmacro __using__(_opts) do
     quote do
-      Module.register_attribute(__MODULE__, :dashed_subcommands, accumulate: true, persist: true)
+      Module.register_attribute(__MODULE__, :dashed_commands, accumulate: true, persist: true)
       @dashed_name nil
       @dashed_description ""
       @dashed_version "0.0.0"
@@ -45,7 +45,7 @@ defmodule Dashed.CliApplication do
             @dashed_version
 
           :subcommands ->
-            @dashed_subcommands
+            @dashed_commands
         end
       end
     end
