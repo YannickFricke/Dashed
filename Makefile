@@ -1,6 +1,9 @@
 .PHONY: clear fetch-deps compile-deps compile test docs inspect analyze
 
-default: compile inspect analyze
+default: fetch-deps \
+		 compile-deps \
+		 compile \
+		 docs
 
 clear:
 	clear
