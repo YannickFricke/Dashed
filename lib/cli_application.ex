@@ -88,7 +88,7 @@ defmodule Dashed.CliApplication do
           :version ->
             @dashed_version
 
-          :subcommands ->
+          :commands ->
             @dashed_commands
         end
       end
