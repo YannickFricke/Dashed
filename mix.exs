@@ -31,7 +31,8 @@ defmodule Dashed.MixProject do
     [
       {:ex_doc, "~> 0.28.0"},
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.0", only: [:dev], runtime: false}
+      {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
+      {:stream_data, "~> 0.5", only: :test}
     ]
   end
 end
