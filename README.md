@@ -26,22 +26,24 @@ end
 -   float
 -   boolean
 -   list
+-   map
 
 ## TODOs
 
 -   [ ] CLI Application
-    -   [ ] Name
-    -   [ ] Description
-    -   [ ] Version
+    -   [x] Name
+    -   [x] Description
+    -   [x] Version
     -   [ ] Commands
--   [ ] Input Parser
-    -   [ ] Can make use of options (`Keyword.t()`)
-    -   [ ] Supported data types
-        -   [ ] string
-        -   [ ] integer
-        -   [ ] float
-        -   [ ] boolean
-        -   [ ] list
+-   [x] Input Parser
+    -   [x] Can make use of options (`Keyword.t()`)
+    -   [x] Supported data types
+        -   [x] string
+        -   [x] integer
+        -   [x] float
+        -   [x] boolean
+        -   [x] list
+        -   [x] map
 -   [ ] Command
     -   [ ] Name
     -   [ ] Description
