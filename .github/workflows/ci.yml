@@ -7,11 +7,11 @@ jobs:
         container: elixir:1.13.3-alpine
         steps:
             - uses: actions/checkout@v1
-            - run: |
-                  apk add make
-
-                  mix local.hex --force
-                  mix local.rebar --force
-
-                  make ci
-              name: Run in container
+            - name: Install make
+              run: apk add make
+            - name: Install hex
+              run: mix local.hex --force
+            - name: Install rebar
+              run: mix local.rebar --force
+            - name: Run the "ci" make target
+              run: make ci
