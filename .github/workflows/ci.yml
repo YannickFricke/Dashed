@@ -6,6 +6,7 @@ jobs:
         runs-on: ubuntu-latest
         container: elixir:1.13.3-alpine
         steps:
+            - uses: actions/checkout@v1
             - run: |
                   apk add make
                   make fetch-deps compile-deps
