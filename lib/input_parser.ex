@@ -43,6 +43,8 @@ defmodule Dashed.InputParser do
       """
 
       @behaviour unquote(__MODULE__)
+
+      use Dashed.Base
     end
   end
 end
