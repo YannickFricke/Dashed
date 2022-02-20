@@ -1,4 +1,4 @@
-.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze watch watch-cmd
+.PHONY: clear fetch-deps compile-deps compile test test-with-codecov docs inspect analyze watch watch-cmd serve-docs serve-coverage serve-all
 
 default: fetch-deps \
 		 compile-deps \
@@ -39,3 +39,12 @@ watch-cmd:
 	clear 
 	mix docs
 	mix test --cover
+
+serve-docs:
+	npx live-server doc/
+
+serve-coverage:
+	npx live-server cover/
+
+serve-all:
+	npx live-server .

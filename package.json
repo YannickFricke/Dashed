@@ -18,6 +18,7 @@
 	"homepage": "https://github.com/YannickFricke/Dashed#readme",
 	"devDependencies": {
 		"husky": "^7.0.4",
+		"live-server": "^1.2.1",
 		"onchange": "^7.1.0"
 	}
 }
